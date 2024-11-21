@@ -1,0 +1,26 @@
+{
+  "name": "log-viewer-sdk-node",
+  "description": "Log Viewer SDK For Nodejs Environment",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "keywords": [
+    "logs",
+    "view-logs",
+    "view-logs-errors",
+    "log-errors",
+    "log-management",
+    "log-storage",
+    "log-viewer"
+  ],
+  "author": "Log Viewer Team",
+  "license": "ISC",
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  }
+}
