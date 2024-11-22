@@ -25,8 +25,8 @@ The event object passed to the logger should follow this structure:
 
 | **Key**            | **Type**                                              | **Required** | **Description**                                     |
 |---------------------|-------------------------------------------------------|--------------|-----------------------------------------------------|
-| `level`            | `"critical" | "error" | "warn" | "info"`         | Yes          | Severity level of the log.                         |
-| `log_type`         | `"api" | "database" | "internal" | "webhook"`     | Yes          | Type of log.                                       |
+| `level`            | `string`| `"critical" | "error" | "warn" | "info"`         | Yes          | Severity level of the log.                         |
+| `log_type`         | `string`| `"api" | "database" | "internal" | "webhook"`     | Yes          | Type of log.                                       |
 | `message`          | `string`                                              | No           | Descriptive message for the log.                  |
 | `stack`            | `string`                                              | No           | Stack trace details.                               |
 | `request_id`       | `string`                                              | No           | Identifier for the request.                       |
