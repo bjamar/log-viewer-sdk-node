@@ -1,32 +1,34 @@
 import { Worker } from "worker_threads";
 import path from "path";
-import { LoggerConfigType, EventPropType } from "./types";
+import { LoggerConfig, EventObject } from "./types";
 
 // Updated `createEventLogger` function
 export const createEventLogger = ({
-  serviceKey,
+  apiKey,
+  serviceId,
   environment = "development", // Default value for environment
-}: LoggerConfigType) => {
-  if (!serviceKey) {
-    throw new Error("serviceKey is required to initialize the event logger.");
+}: LoggerConfig) => {
+  if (!apiKey) {
+    throw new Error("apiKey is required to initialize the event logger.");
+  }
+  if (!serviceId) {
+    throw new Error("serviceId is required to initialize the event logger.");
   }
 
-  const apiEndpoint = "https://your-logging-service.com/logs";
-
-  return (event: EventPropType) => {
+  return (eventObject: EventObject) => {
     // Add environment and timestamp_ms automatically
-    const enrichedEvent = {
-      ...event,
-      environment,
-    };
+   
 
     const worker = new Worker(path.resolve(__dirname, "./logger-worker.js"));
 
     // Post message to the worker
     worker.postMessage({
-      apiEndpoint,
-      apiKey: serviceKey,
-      event: enrichedEvent,
+      loggerConfig: {
+        apiKey,
+        serviceId,
+        environment,
+      },
+      eventObject,
     });
 
     // Custom event for worker exit

@@ -1,14 +1,15 @@
-# Event Logger
+# Log Viewer SDK for Node.js
 
-Event Logger is a lightweight, non-blocking logging utility designed for Node.js applications. It allows you to log events asynchronously via a worker-based architecture, ensuring the main thread remains unaffected.
+The Log Viewer SDK for Node.js allows you to capture and log events from your Node.js application to the Log Viewer platform so you can monitor and analyze your application's performance and behavior from the Log Viewer UI. Its built with a worker-based architecture, ensuring the main thread remains unaffected. Check out the [Log Viewer](https://logviewer.io) platform for more information. 
 
 ## Features
 
 - **Non-blocking logging**: Uses worker threads under the hood.
-- **Customizable**: Accepts user-defined event attributes.
+- **Flexible**: Fits most logging needs.
 - **Environment-aware**: Logs events with environment context (production, staging, development).
 - **Scalable**: Handles high-frequency logging efficiently.
 - **TypeScript ready**: Fully typed for a better developer experience.
+- **CommonJS and ESM**: Supports both CommonJS and ESM module systems.
 
 ## Installation
 
@@ -34,5 +35,29 @@ The event object passed to the logger should follow this structure:
 | `function_name`    | `string`                                              | No           | Name of the function where the log occurred.      |
 | `status_code`      | `number`                                              | No           | HTTP status code.                                  |
 | `endpoint`         | `string`                                              | No           | API endpoint or resource being accessed.          |
-| `environment`      | `"production" | "staging" | "development"`          | Yes          | The application environment.                      |
-| `timestamp_ms`     | `bigint` (automatically added by the worker)           | Yes          | Timestamp in milliseconds, added by the worker.   |
+
+
+
+## Usage
+
+```typescript
+import { createEventLogger } from "log-viewer-sdk-node";
+
+const logger = createEventLogger({
+  apiKey: "your-api-key",
+  serviceId: "your-service-id",
+  environment: "production",
+});
+
+logger({
+  level: "info",
+  log_type: "internal",
+  message: "This is a test message",
+});
+```
+
+
+```commonjs
+const { createEventLogger } = require("log-viewer-sdk-node");
+```
+
