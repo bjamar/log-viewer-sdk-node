@@ -23,18 +23,18 @@ npm install log-viewer-sdk-node
 
 The event object passed to the logger should follow this structure:
 
-| **Key**            | **Type**                                              | **Required** | **Description**                                     |
-|---------------------|-------------------------------------------------------|--------------|-----------------------------------------------------|
-| `level`            | `string`| `"critical" | "error" | "warn" | "info"`         | Yes          | Severity level of the log.                         |
-| `log_type`         | `string`| `"api" | "database" | "internal" | "webhook"`     | Yes          | Type of log.                                       |
-| `message`          | `string`                                              | No           | Descriptive message for the log.                  |
-| `stack`            | `string`                                              | No           | Stack trace details.                               |
-| `request_id`       | `string`                                              | No           | Identifier for the request.                       |
-| `ip_address`       | `string`                                              | No           | IP address of the client.                         |
-| `request_payload`  | `string`                                              | No           | Serialized payload of the request.                |
-| `function_name`    | `string`                                              | No           | Name of the function where the log occurred.      |
-| `status_code`      | `number`                                              | No           | HTTP status code.                                  |
-| `endpoint`         | `string`                                              | No           | API endpoint or resource being accessed.          |
+| **Key**            | **Type**                                              | **Required** | **Description**                                         |
+|--------------------|-------------------------------------------------------|--------------|---------------------------------------------------------|
+| `level`            | `string`                                              | Yes          | Severity level; `"critical" , "error" , "warn" , "info"`|
+| `log_type`         | `string`                                              | Yes          | Type; `"api" , "database" , "internal" , "webhook"`     |
+| `message`          | `string`                                              | No           | Descriptive message for the log.                        |
+| `stack`            | `string`                                              | No           | Stack trace details.                                    |
+| `request_id`       | `string`                                              | No           | Identifier for the request.                             |
+| `ip_address`       | `string`                                              | No           | IP address of the client.                               |
+| `request_payload`  | `string`                                              | No           | Serialized payload of the request.                      |
+| `function_name`    | `string`                                              | No           | Name of the function where the log occurred.            |
+| `status_code`      | `number`                                              | No           | HTTP status code.                                       |
+| `endpoint`         | `string`                                              | No           | API endpoint or resource being accessed.                |
 
 
 
