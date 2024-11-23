@@ -41,6 +41,8 @@ The event object passed to the logger should follow this structure:
 ## Usage
 
 ```typescript
+//typescript
+
 import { createEventLogger } from "log-viewer-sdk-node";
 
 const logger = createEventLogger({
@@ -57,6 +59,8 @@ logger({
 
 
 ```commonjs
+//commonjs
+
 const { createEventLogger } = require("log-viewer-sdk-node");
 ```
 
