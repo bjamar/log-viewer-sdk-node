@@ -17,7 +17,7 @@
     "log-storage",
     "log-viewer"
   ],
-  "author": "Log Viewer Team",
+  "author": "bjamar",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.9.1",

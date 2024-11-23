@@ -14,8 +14,7 @@ export interface EventObject {
   
 
 export interface LoggerConfig {
-  apiKey: string; // API key, required
-  serviceId: string; // Foreign key to the service table, required
+  serviceUrl: string;
   environment: 'production' | 'staging' | 'development'; // Environment type, required
 }
 

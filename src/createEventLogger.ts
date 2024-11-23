@@ -4,15 +4,11 @@ import { LoggerConfig, EventObject } from "./types";
 
 // Updated `createEventLogger` function
 export const createEventLogger = ({
-  apiKey,
-  serviceId,
+  serviceUrl,
   environment = "development", // Default value for environment
 }: LoggerConfig) => {
-  if (!apiKey) {
-    throw new Error("apiKey is required to initialize the event logger.");
-  }
-  if (!serviceId) {
-    throw new Error("serviceId is required to initialize the event logger.");
+  if (!serviceUrl) {
+    throw new Error("serviceUrl is required to initialize the event logger.");
   }
 
   return (eventObject: EventObject) => {
@@ -24,8 +20,7 @@ export const createEventLogger = ({
     // Post message to the worker
     worker.postMessage({
       loggerConfig: {
-        apiKey,
-        serviceId,
+        serviceUrl,
         environment,
       },
       eventObject,
@@ -44,3 +39,4 @@ export const createEventLogger = ({
     });
   };
 };
+

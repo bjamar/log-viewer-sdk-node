@@ -15,11 +15,10 @@ parentPort?.on("message", async (workerPayload: WorkerPayload) => {
       environment: loggerConfig.environment,
     };
 
-    await fetch("https://api.logviewer.io/logs", {
+    await fetch(loggerConfig.serviceUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${loggerConfig.apiKey}`,
       },
       body: JSON.stringify(requestPayload),
     });
@@ -37,3 +36,4 @@ parentPort?.on("message", async (workerPayload: WorkerPayload) => {
     });
   }
 });
+
