@@ -46,7 +46,7 @@ The event object passed to the logger should follow this structure:
 import { createEventLogger } from "log-viewer-sdk-node";
 
 const logger = createEventLogger({
-  serviceUrl: "https://api.logviewer.io/serviceKey",
+  serviceUrl: "https://api.logviewer.io/your-service-key", 
   environment: "staging", // or production or development
 });
 
